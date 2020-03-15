@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import contatcsActions from '../../redux/contacts/contactsActions';
 import contactsOperations from '../../redux/contacts/contactsOperations';
+import contactsSelectors from '../../redux/contacts/contactsSelectors';
 import withTheme from '../hoc/withTheme';
 import PropTypes from 'prop-types';
 import styles from './ContactsList.module.css';
@@ -36,14 +36,15 @@ ContactsListItem.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  const item = state.contacts.items.find(item => item.id === ownProps.id);
+  const item = contactsSelectors.getContactById(state, ownProps.id);
   return {
     ...item,
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onDeleteContact: () => dispatch(contactsOperations.deleteContact(ownProps.id)),
+  onDeleteContact: () =>
+    dispatch(contactsOperations.deleteContact(ownProps.id)),
 });
 
 export default connect(
