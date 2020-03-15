@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ContactsListItem from './ContactsListItem';
+import contactsSelectors from '../../redux/contacts/contactsSelectors';
 import PropTypes from 'prop-types';
 import styles from './ContactsList.module.css';
 
@@ -22,18 +23,8 @@ ContactsList.propTypes = {
   ).isRequired,
 };
 
-const mapStateToProps = state => {
-  const { items, filter } = state.contacts;
-  console.log(state);
-  const normalizedFilter = filter.toLowerCase();
-
-  const filteredContacts = items.filter(({ name }) =>
-    name.toLowerCase().includes(normalizedFilter),
-  );
-
-  return {
-    contacts: filteredContacts,
-  };
-};
+const mapStateToProps = state => ({
+  contacts: contactsSelectors.getFilteredContacts(state),
+});
 
 export default connect(mapStateToProps)(ContactsList);

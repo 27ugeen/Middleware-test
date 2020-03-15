@@ -1,19 +1,9 @@
 {
   "contacts": [
     {
-      "name": "ddd",
-      "number": "333",
-      "id": 1
-    },
-    {
-      "name": "aaa",
-      "number": "5555",
-      "id": 2
-    },
-    {
-      "name": "sss",
-      "number": "333",
-      "id": 3
+      "name": "batman",
+      "number": "111",
+      "id": 4
     }
   ]
 }
