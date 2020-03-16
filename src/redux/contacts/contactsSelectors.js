@@ -12,13 +12,6 @@ const getFilteredContacts = createSelector(
     ),
 );
 
-// const gfc = state => {
-//   const items = getContactsItems(state);
-//   const filter = getFilter(state).toLowerCase();
-
-//   return items.filter(({ name }) => name.toLowerCase().includes(filter));
-// };
-
 const getContactById = (state, contactId) => {
   const items = getContactsItems(state);
 
@@ -29,4 +22,5 @@ export default {
   getFilter,
   getFilteredContacts,
   getContactById,
+  getContactsItems,
 };

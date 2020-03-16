@@ -1,19 +1,26 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Phonebook from './PhoneBook';
 import ContactsList from './ContactsList';
 import ContactFilter from './ContactFilter';
 import Section from './Section';
+import Notification from './Notification';
+import contactsSelectors from '../redux/contacts/contactsSelectors';
 import withTheme from './hoc/withTheme';
 import PropTypes from 'prop-types';
 
-const PhoneBookPage = ({ theme }) => (
+const PhoneBookPage = ({ items, theme }) => (
   <div className={`phoneBook ${theme.config.bodyBg}`}>
     <Section title="Phonebook">
       <Phonebook />
     </Section>
     <Section title="Contacts">
-      <ContactFilter />
-      <ContactsList />
+      {items.length > 1 && <ContactFilter />}
+      {items.length < 1 ? (
+        <Notification message="There is no contact yet..." />
+      ) : (
+        <ContactsList />
+      )}
     </Section>
   </div>
 );
@@ -26,4 +33,8 @@ PhoneBookPage.propTypes = {
   }).isRequired,
 };
 
-export default withTheme(PhoneBookPage);
+const mapStateToProps = state => ({
+  items: contactsSelectors.getContactsItems(state),
+});
+
+export default connect(mapStateToProps)(withTheme(PhoneBookPage));
