@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Phonebook from './PhoneBook';
-import ContactsList from './ContactsList';
+import ContactsList from './ContactsList/ContactsListContainer';
 import ContactFilter from './ContactFilter';
 import Section from './Section';
 import Notification from './Notification';

@@ -1,7 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import ContactsListItem from './ContactsListItemContainer';
-import contactsSelectors from '../../redux/contacts/contactsSelectors';
 import PropTypes from 'prop-types';
 import styles from './ContactsList.module.css';
 
@@ -18,13 +16,11 @@ const ContactsList = ({ contacts }) => (
 ContactsList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
 };
 
-const mapStateToProps = state => ({
-  contacts: contactsSelectors.getFilteredContacts(state),
-});
+;
 
-export default connect(mapStateToProps)(ContactsList);
+export default ContactsList;

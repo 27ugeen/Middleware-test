@@ -4,6 +4,10 @@ const getFilter = state => state.contacts.filter;
 
 const getContactsItems = state => state.contacts.items;
 
+const getLoading = state => state.contacts.loading;
+
+const getError = state => state.contacts.error;
+
 const getFilteredContacts = createSelector(
   [getContactsItems, getFilter],
   (items, filter) =>
@@ -20,6 +24,8 @@ const getContactById = (state, contactId) => {
 
 export default {
   getFilter,
+  getLoading,
+  getError,
   getFilteredContacts,
   getContactById,
   getContactsItems,

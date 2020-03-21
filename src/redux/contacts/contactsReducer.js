@@ -20,17 +20,21 @@ const filter = createReducer('', {
 const loading = createReducer(false, {
   [contactsActions.fetchContactsRequest]: () => true,
   [contactsActions.fetchContactsSuccess]: () => false,
-  [contactsActions.fetchContactsError]: () => false,
   [contactsActions.addContactRequest]: () => true,
   [contactsActions.addContactSuccess]: () => false,
-  [contactsActions.addContactError]: () => false,
   [contactsActions.deleteContactRequest]: () => true,
   [contactsActions.deleteContactSuccess]: () => false,
-  [contactsActions.fetchContactsError]: () => false,
+});
+
+const error = createReducer(false, {
+  [contactsActions.fetchContactsError]: () => true,
+  [contactsActions.addContactError]: () => true,
+  [contactsActions.deleteContactError]: () => true,
 });
 
 export default combineReducers({
   items,
   loading,
   filter,
+  error,
 });
