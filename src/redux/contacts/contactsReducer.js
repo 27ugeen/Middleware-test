@@ -15,6 +15,7 @@ const items = createReducer([], {
 
 const filter = createReducer('', {
   [contactsActions.changeFilter]: (_, { payload }) => payload,
+  [contactsActions.deleteContactSuccess]: () => '',
 });
 
 const loading = createReducer(false, {
