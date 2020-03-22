@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ContactsListItem from './ContactsListItem';
+import ContactItem from './ContactItem';
 import contactsOperations from '../../redux/contacts/contactsOperations';
 import contactsSelectors from '../../redux/contacts/contactsSelectors';
 import withTheme from '../hoc/withTheme';
@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(withTheme(ContactsListItem));
+)(withTheme(ContactItem));

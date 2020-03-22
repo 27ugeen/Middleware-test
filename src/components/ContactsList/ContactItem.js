@@ -4,7 +4,7 @@ import styles from './ContactsList.module.css';
 
 const { contactsListItem, contactButton } = styles;
 
-const ContactsListItem = ({ name, number, onDeleteContact, theme }) => (
+const ContactItem = ({ name, number, onDeleteContact, theme }) => (
   <li className={contactsListItem}>
     <p>
       {name}: {number}
@@ -19,7 +19,7 @@ const ContactsListItem = ({ name, number, onDeleteContact, theme }) => (
   </li>
 );
 
-ContactsListItem.propTypes = {
+ContactItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
@@ -31,4 +31,4 @@ ContactsListItem.propTypes = {
   }).isRequired,
 };
 
-export default ContactsListItem;
+export default ContactItem;

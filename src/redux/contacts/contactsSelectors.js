@@ -16,11 +16,10 @@ const getFilteredContacts = createSelector(
     ),
 );
 
-const getContactById = (state, contactId) => {
-  const items = getContactsItems(state);
-
-  return items.find(item => item.id === contactId);
-};
+const getContactById = createSelector(
+  [(state, contactId) => contactId, getContactsItems],
+  (contactId, items) => items.find(({ id }) => id === contactId),
+);
 
 export default {
   getFilter,
