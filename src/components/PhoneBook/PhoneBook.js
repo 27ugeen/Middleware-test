@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import shortid from 'shortid';
 import { connect } from 'react-redux';
 import withTheme from '../hoc/withTheme';
-// import contactsActions from '../../redux/contacts/contactsActions';
 import contactsOperations from '../../redux/contacts/contactsOperations';
 import PropTypes from 'prop-types';
 import styles from './PhoneBook.module.css';
